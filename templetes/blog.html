@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load  static%}
+{% static 'images' as baseUrl %}
+
+
+
+{%block content %}
+
+<div class="yellow_bg">
+   <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="title">
+                     <h2>Our Blog</h2>
+                    
+                  </div>
+               </div>
+            </div>
+          </div>
+</div>
+
+
+<!-- blog -->
+<div class="blog">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="title">
+          <i><img src="{% static 'images/title.png' %}" alt="#"/></i>
+          <h2>Our Blog</h2>
+          <span>when looking at its layout. The point of using Lorem</span>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+{% for food in foods %}
+      <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 mar_bottom">
+        <div class="blog_box">
+          <div class="blog_img_box">
+            <figure><img src="{{food.image.url}}" alt="#"/>
+             <span>$ {{food.price}}</span>
+            </figure>
+          </div>
+          <h3>{{food.name}}</h3>
+          <p>{{food.des}}</p>
+        </div>
+      </div>
+{% endfor %}
+
+    </div>
+  </div>
+</div>
+<!-- end blog -->
+
+
+{%endblock %}
